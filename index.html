@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rolling Die App</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #f8efd4, #f1c27d); /* Gradient background */
+            color: #333; /* Text color */
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 60px;
+            color: #2a9d8f; /* Aquamarine-like color */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Text shadow for a 3D effect */
+            margin-top: 40px;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            margin-top: 40px;
+            border: 5px solid #264653; /* Border around the image */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #e76f51; /* Coral color */
+            color: white;
+            font-size: 20px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Button shadow */
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+            margin-top: 30px; /* Space above the button */
+        }
+
+        button:hover {
+            background-color: #f4a261; /* Lighter coral on hover */
+            transform: scale(1.1); /* Slightly enlarge the button */
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+        }
+
+        /* Layout Styles */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 109vh; /* Full viewport height */
+        }
+
+        .result {
+            font-size: 20px;
+            color: #264653; /* Darker color for the result text */
+            margin-top: 30px; /* Space above the result text */
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roll the Die</h1>
+        <button onclick="roll()">Roll</button>
+        <p class="result" id="resultText"></p> <!-- Result text will appear here -->
+        <img src="P1.png" id="im1" alt="Die Image" />
+    </div>
+
+    <script>
+        function roll() {
+            let im1 = document.getElementById("im1");
+            let resultText = document.getElementById("resultText");
+            let images = ["P1.png", "P2.png", "P3.png", "P4.png", "P5.png", "P6.png"];
+            let r = parseInt(Math.random() * images.length); // Generate random index
+            im1.src = images[r];
+            resultText.textContent = `You got ${r + 1}`; // Display the result text
+        }
+    </script>
+</body>
+</html>
